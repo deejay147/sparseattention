@@ -13,7 +13,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import torch
 from sparse_attn.dense import dense_attention
 from sparse_attn.masks import causal_mask, sliding_window_mask, bigbird_mask
-from sparse_attn.sparse import gather_sparse_attention
+from sparse_attn.sparse import gather_sparse_attention, sliding_window_attention
 
 RESULTS = []
 
@@ -80,7 +80,25 @@ def test_sparse_matches_dense():
                                err <= atol, f"max_err={err:.1e} tol={atol:.1e}")
 
 
-# --- 1.4 ---
+# added phase 3: chunked sliding window (the fast one) vs dense + same mask
+def test_sliding_window_matches_dense():
+    print("\n== 1.3 chunked sliding window vs dense ==")
+    for dtype in (torch.float32, torch.float64):
+        for N in (7, 64, 100):
+            q, k, v = rand_qkv(2, 2, N, 16, dtype)
+            atol = tolerance(q, k, dtype)
+            for w in (1, 4, 16, 200):             # 1 = self only, 200 > N = whole context
+                for chunk in (None, 3):           # None -> chunk = w; 3 -> uneven chunks
+                    for causal in (True, False):
+                        ref = dense_attention(q, k, v, sliding_window_mask(N, w, causal=causal))
+                        out = sliding_window_attention(q, k, v, w, causal=causal, chunk=chunk)
+                        err = (out - ref).abs().max().item()   # no empty rows, compare all
+                        report(f"chunked N={N:<3d} w={w:<3d} chunk={str(chunk):4s} "
+                               f"causal={causal!s:5s} {str(dtype)[6:]}",
+                               err <= atol, f"max_err={err:.1e} tol={atol:.1e}")
+
+
+# ---- 1.4 ----
 def test_nan_handling():
     print("\n== 1.4 NaN handling ==")
     N = 16
@@ -153,6 +171,7 @@ def test_finite_fill_leaks():
 if __name__ == "__main__":
     print(f"torch {torch.__version__}")
     test_sparse_matches_dense()
+    test_sliding_window_matches_dense()
     test_nan_handling()
     test_gradient_traps()
     test_finite_fill_leaks()

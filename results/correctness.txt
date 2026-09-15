@@ -1,19 +1,19 @@
-torch 2.11.0+cpu
+torch 2.11.0+cu128
 
 == 1.3 sparse (gather) vs dense ==
-PASS  full              N=7   causal=True  scale=1.0   float32  max_err=4.8e-07 tol=1.0e-05
-PASS  sliding_w4        N=7   causal=True  scale=1.0   float32  max_err=4.8e-07 tol=1.0e-05
-PASS  bigbird_b4_g1_r1  N=7   causal=True  scale=1.0   float32  max_err=4.8e-07 tol=1.0e-05
+PASS  full              N=7   causal=True  scale=1.0   float32  max_err=2.4e-07 tol=1.0e-05
+PASS  sliding_w4        N=7   causal=True  scale=1.0   float32  max_err=2.4e-07 tol=1.0e-05
+PASS  bigbird_b4_g1_r1  N=7   causal=True  scale=1.0   float32  max_err=2.4e-07 tol=1.0e-05
 PASS  full              N=7   causal=True  scale=100.0 float32  max_err=0.0e+00 tol=5.9e-02
 PASS  sliding_w4        N=7   causal=True  scale=100.0 float32  max_err=0.0e+00 tol=5.9e-02
 PASS  bigbird_b4_g1_r1  N=7   causal=True  scale=100.0 float32  max_err=0.0e+00 tol=5.9e-02
-PASS  full              N=7   causal=False scale=1.0   float32  max_err=2.4e-07 tol=1.0e-05
-PASS  sliding_w4        N=7   causal=False scale=1.0   float32  max_err=2.7e-07 tol=1.0e-05
-PASS  bigbird_b4_g1_r1  N=7   causal=False scale=1.0   float32  max_err=2.4e-07 tol=1.0e-05
+PASS  full              N=7   causal=False scale=1.0   float32  max_err=1.8e-07 tol=1.0e-05
+PASS  sliding_w4        N=7   causal=False scale=1.0   float32  max_err=4.2e-07 tol=1.0e-05
+PASS  bigbird_b4_g1_r1  N=7   causal=False scale=1.0   float32  max_err=1.8e-07 tol=1.0e-05
 PASS  full              N=7   causal=False scale=100.0 float32  max_err=0.0e+00 tol=5.9e-02
 PASS  sliding_w4        N=7   causal=False scale=100.0 float32  max_err=0.0e+00 tol=5.9e-02
 PASS  bigbird_b4_g1_r1  N=7   causal=False scale=100.0 float32  max_err=0.0e+00 tol=5.9e-02
-PASS  full              N=16  causal=True  scale=1.0   float32  max_err=3.6e-07 tol=1.0e-05
+PASS  full              N=16  causal=True  scale=1.0   float32  max_err=2.4e-07 tol=1.0e-05
 PASS  sliding_w4        N=16  causal=True  scale=1.0   float32  max_err=3.6e-07 tol=1.0e-05
 PASS  bigbird_b4_g1_r1  N=16  causal=True  scale=1.0   float32  max_err=3.0e-07 tol=1.0e-05
 PASS  full              N=16  causal=True  scale=100.0 float32  max_err=0.0e+00 tol=5.2e-02
@@ -21,58 +21,156 @@ PASS  sliding_w4        N=16  causal=True  scale=100.0 float32  max_err=0.0e+00 
 PASS  bigbird_b4_g1_r1  N=16  causal=True  scale=100.0 float32  max_err=0.0e+00 tol=5.2e-02
 PASS  full              N=16  causal=False scale=1.0   float32  max_err=2.4e-07 tol=1.0e-05
 PASS  sliding_w4        N=16  causal=False scale=1.0   float32  max_err=4.8e-07 tol=1.0e-05
-PASS  bigbird_b4_g1_r1  N=16  causal=False scale=1.0   float32  max_err=2.4e-07 tol=1.0e-05
+PASS  bigbird_b4_g1_r1  N=16  causal=False scale=1.0   float32  max_err=3.0e-07 tol=1.0e-05
 PASS  full              N=16  causal=False scale=100.0 float32  max_err=0.0e+00 tol=5.2e-02
 PASS  sliding_w4        N=16  causal=False scale=100.0 float32  max_err=0.0e+00 tol=5.2e-02
 PASS  bigbird_b4_g1_r1  N=16  causal=False scale=100.0 float32  max_err=0.0e+00 tol=5.2e-02
 PASS  full              N=64  causal=True  scale=1.0   float32  max_err=3.6e-07 tol=1.0e-05
 PASS  sliding_w4        N=64  causal=True  scale=1.0   float32  max_err=3.6e-07 tol=1.0e-05
-PASS  bigbird_b4_g1_r1  N=64  causal=True  scale=1.0   float32  max_err=2.4e-07 tol=1.0e-05
+PASS  bigbird_b4_g1_r1  N=64  causal=True  scale=1.0   float32  max_err=3.6e-07 tol=1.0e-05
 PASS  full              N=64  causal=True  scale=100.0 float32  max_err=1.2e-07 tol=5.3e-02
 PASS  sliding_w4        N=64  causal=True  scale=100.0 float32  max_err=2.4e-07 tol=5.3e-02
 PASS  bigbird_b4_g1_r1  N=64  causal=True  scale=100.0 float32  max_err=0.0e+00 tol=5.3e-02
-PASS  full              N=64  causal=False scale=1.0   float32  max_err=3.0e-07 tol=1.0e-05
+PASS  full              N=64  causal=False scale=1.0   float32  max_err=3.1e-07 tol=1.0e-05
 PASS  sliding_w4        N=64  causal=False scale=1.0   float32  max_err=3.6e-07 tol=1.0e-05
-PASS  bigbird_b4_g1_r1  N=64  causal=False scale=1.0   float32  max_err=3.1e-07 tol=1.0e-05
+PASS  bigbird_b4_g1_r1  N=64  causal=False scale=1.0   float32  max_err=3.6e-07 tol=1.0e-05
 PASS  full              N=64  causal=False scale=100.0 float32  max_err=0.0e+00 tol=5.3e-02
 PASS  sliding_w4        N=64  causal=False scale=100.0 float32  max_err=0.0e+00 tol=5.3e-02
 PASS  bigbird_b4_g1_r1  N=64  causal=False scale=100.0 float32  max_err=1.4e-04 tol=5.3e-02
-PASS  full              N=7   causal=True  scale=1.0   float64  max_err=6.7e-16 tol=1.0e-12
-PASS  sliding_w4        N=7   causal=True  scale=1.0   float64  max_err=5.6e-16 tol=1.0e-12
-PASS  bigbird_b4_g1_r1  N=7   causal=True  scale=1.0   float64  max_err=6.7e-16 tol=1.0e-12
-PASS  full              N=7   causal=True  scale=100.0 float64  max_err=0.0e+00 tol=6.8e-11
+PASS  full              N=7   causal=True  scale=1.0   float64  max_err=8.9e-16 tol=1.0e-12
+PASS  sliding_w4        N=7   causal=True  scale=1.0   float64  max_err=4.4e-16 tol=1.0e-12
+PASS  bigbird_b4_g1_r1  N=7   causal=True  scale=1.0   float64  max_err=8.9e-16 tol=1.0e-12
+PASS  full              N=7   causal=True  scale=100.0 float64  max_err=2.2e-16 tol=6.8e-11
 PASS  sliding_w4        N=7   causal=True  scale=100.0 float64  max_err=0.0e+00 tol=6.8e-11
-PASS  bigbird_b4_g1_r1  N=7   causal=True  scale=100.0 float64  max_err=0.0e+00 tol=6.8e-11
-PASS  full              N=7   causal=False scale=1.0   float64  max_err=5.6e-16 tol=1.0e-12
+PASS  bigbird_b4_g1_r1  N=7   causal=True  scale=100.0 float64  max_err=2.2e-16 tol=6.8e-11
+PASS  full              N=7   causal=False scale=1.0   float64  max_err=4.7e-16 tol=1.0e-12
 PASS  sliding_w4        N=7   causal=False scale=1.0   float64  max_err=6.7e-16 tol=1.0e-12
-PASS  bigbird_b4_g1_r1  N=7   causal=False scale=1.0   float64  max_err=5.6e-16 tol=1.0e-12
-PASS  full              N=7   causal=False scale=100.0 float64  max_err=0.0e+00 tol=6.8e-11
+PASS  bigbird_b4_g1_r1  N=7   causal=False scale=1.0   float64  max_err=4.7e-16 tol=1.0e-12
+PASS  full              N=7   causal=False scale=100.0 float64  max_err=2.2e-16 tol=6.8e-11
 PASS  sliding_w4        N=7   causal=False scale=100.0 float64  max_err=0.0e+00 tol=6.8e-11
-PASS  bigbird_b4_g1_r1  N=7   causal=False scale=100.0 float64  max_err=0.0e+00 tol=6.8e-11
+PASS  bigbird_b4_g1_r1  N=7   causal=False scale=100.0 float64  max_err=2.2e-16 tol=6.8e-11
 PASS  full              N=16  causal=True  scale=1.0   float64  max_err=4.4e-16 tol=1.0e-12
 PASS  sliding_w4        N=16  causal=True  scale=1.0   float64  max_err=6.7e-16 tol=1.0e-12
-PASS  bigbird_b4_g1_r1  N=16  causal=True  scale=1.0   float64  max_err=4.4e-16 tol=1.0e-12
+PASS  bigbird_b4_g1_r1  N=16  causal=True  scale=1.0   float64  max_err=5.6e-16 tol=1.0e-12
 PASS  full              N=16  causal=True  scale=100.0 float64  max_err=0.0e+00 tol=7.2e-11
 PASS  sliding_w4        N=16  causal=True  scale=100.0 float64  max_err=0.0e+00 tol=7.2e-11
 PASS  bigbird_b4_g1_r1  N=16  causal=True  scale=100.0 float64  max_err=0.0e+00 tol=7.2e-11
-PASS  full              N=16  causal=False scale=1.0   float64  max_err=3.3e-16 tol=1.0e-12
-PASS  sliding_w4        N=16  causal=False scale=1.0   float64  max_err=5.6e-16 tol=1.0e-12
-PASS  bigbird_b4_g1_r1  N=16  causal=False scale=1.0   float64  max_err=8.9e-16 tol=1.0e-12
+PASS  full              N=16  causal=False scale=1.0   float64  max_err=4.4e-16 tol=1.0e-12
+PASS  sliding_w4        N=16  causal=False scale=1.0   float64  max_err=5.0e-16 tol=1.0e-12
+PASS  bigbird_b4_g1_r1  N=16  causal=False scale=1.0   float64  max_err=5.6e-16 tol=1.0e-12
 PASS  full              N=16  causal=False scale=100.0 float64  max_err=4.1e-12 tol=7.2e-11
 PASS  sliding_w4        N=16  causal=False scale=100.0 float64  max_err=0.0e+00 tol=7.2e-11
 PASS  bigbird_b4_g1_r1  N=16  causal=False scale=100.0 float64  max_err=4.1e-12 tol=7.2e-11
-PASS  full              N=64  causal=True  scale=1.0   float64  max_err=1.1e-15 tol=1.0e-12
-PASS  sliding_w4        N=64  causal=True  scale=1.0   float64  max_err=6.7e-16 tol=1.0e-12
-PASS  bigbird_b4_g1_r1  N=64  causal=True  scale=1.0   float64  max_err=4.4e-16 tol=1.0e-12
+PASS  full              N=64  causal=True  scale=1.0   float64  max_err=8.9e-16 tol=1.0e-12
+PASS  sliding_w4        N=64  causal=True  scale=1.0   float64  max_err=5.0e-16 tol=1.0e-12
+PASS  bigbird_b4_g1_r1  N=64  causal=True  scale=1.0   float64  max_err=6.7e-16 tol=1.0e-12
 PASS  full              N=64  causal=True  scale=100.0 float64  max_err=2.2e-16 tol=1.2e-10
 PASS  sliding_w4        N=64  causal=True  scale=100.0 float64  max_err=2.2e-16 tol=1.2e-10
 PASS  bigbird_b4_g1_r1  N=64  causal=True  scale=100.0 float64  max_err=2.2e-16 tol=1.2e-10
-PASS  full              N=64  causal=False scale=1.0   float64  max_err=1.0e-15 tol=1.0e-12
-PASS  sliding_w4        N=64  causal=False scale=1.0   float64  max_err=6.7e-16 tol=1.0e-12
-PASS  bigbird_b4_g1_r1  N=64  causal=False scale=1.0   float64  max_err=6.7e-16 tol=1.0e-12
+PASS  full              N=64  causal=False scale=1.0   float64  max_err=8.9e-16 tol=1.0e-12
+PASS  sliding_w4        N=64  causal=False scale=1.0   float64  max_err=8.9e-16 tol=1.0e-12
+PASS  bigbird_b4_g1_r1  N=64  causal=False scale=1.0   float64  max_err=5.6e-16 tol=1.0e-12
 PASS  full              N=64  causal=False scale=100.0 float64  max_err=0.0e+00 tol=1.2e-10
 PASS  sliding_w4        N=64  causal=False scale=100.0 float64  max_err=2.2e-16 tol=1.2e-10
 PASS  bigbird_b4_g1_r1  N=64  causal=False scale=100.0 float64  max_err=1.1e-16 tol=1.2e-10
+
+== 1.3 chunked sliding window vs dense ==
+PASS  chunked N=7   w=1   chunk=None causal=True  float32  max_err=0.0e+00 tol=1.0e-05
+PASS  chunked N=7   w=1   chunk=None causal=False float32  max_err=0.0e+00 tol=1.0e-05
+PASS  chunked N=7   w=1   chunk=3    causal=True  float32  max_err=0.0e+00 tol=1.0e-05
+PASS  chunked N=7   w=1   chunk=3    causal=False float32  max_err=0.0e+00 tol=1.0e-05
+PASS  chunked N=7   w=4   chunk=None causal=True  float32  max_err=2.4e-07 tol=1.0e-05
+PASS  chunked N=7   w=4   chunk=None causal=False float32  max_err=1.8e-07 tol=1.0e-05
+PASS  chunked N=7   w=4   chunk=3    causal=True  float32  max_err=2.4e-07 tol=1.0e-05
+PASS  chunked N=7   w=4   chunk=3    causal=False float32  max_err=4.2e-07 tol=1.0e-05
+PASS  chunked N=7   w=16  chunk=None causal=True  float32  max_err=0.0e+00 tol=1.0e-05
+PASS  chunked N=7   w=16  chunk=None causal=False float32  max_err=0.0e+00 tol=1.0e-05
+PASS  chunked N=7   w=16  chunk=3    causal=True  float32  max_err=2.4e-07 tol=1.0e-05
+PASS  chunked N=7   w=16  chunk=3    causal=False float32  max_err=1.8e-07 tol=1.0e-05
+PASS  chunked N=7   w=200 chunk=None causal=True  float32  max_err=0.0e+00 tol=1.0e-05
+PASS  chunked N=7   w=200 chunk=None causal=False float32  max_err=0.0e+00 tol=1.0e-05
+PASS  chunked N=7   w=200 chunk=3    causal=True  float32  max_err=2.4e-07 tol=1.0e-05
+PASS  chunked N=7   w=200 chunk=3    causal=False float32  max_err=1.8e-07 tol=1.0e-05
+PASS  chunked N=64  w=1   chunk=None causal=True  float32  max_err=0.0e+00 tol=1.0e-05
+PASS  chunked N=64  w=1   chunk=None causal=False float32  max_err=0.0e+00 tol=1.0e-05
+PASS  chunked N=64  w=1   chunk=3    causal=True  float32  max_err=0.0e+00 tol=1.0e-05
+PASS  chunked N=64  w=1   chunk=3    causal=False float32  max_err=0.0e+00 tol=1.0e-05
+PASS  chunked N=64  w=4   chunk=None causal=True  float32  max_err=3.6e-07 tol=1.0e-05
+PASS  chunked N=64  w=4   chunk=None causal=False float32  max_err=4.8e-07 tol=1.0e-05
+PASS  chunked N=64  w=4   chunk=3    causal=True  float32  max_err=3.6e-07 tol=1.0e-05
+PASS  chunked N=64  w=4   chunk=3    causal=False float32  max_err=4.8e-07 tol=1.0e-05
+PASS  chunked N=64  w=16  chunk=None causal=True  float32  max_err=0.0e+00 tol=1.0e-05
+PASS  chunked N=64  w=16  chunk=None causal=False float32  max_err=0.0e+00 tol=1.0e-05
+PASS  chunked N=64  w=16  chunk=3    causal=True  float32  max_err=2.4e-07 tol=1.0e-05
+PASS  chunked N=64  w=16  chunk=3    causal=False float32  max_err=1.2e-07 tol=1.0e-05
+PASS  chunked N=64  w=200 chunk=None causal=True  float32  max_err=0.0e+00 tol=1.0e-05
+PASS  chunked N=64  w=200 chunk=None causal=False float32  max_err=0.0e+00 tol=1.0e-05
+PASS  chunked N=64  w=200 chunk=3    causal=True  float32  max_err=2.4e-07 tol=1.0e-05
+PASS  chunked N=64  w=200 chunk=3    causal=False float32  max_err=1.5e-07 tol=1.0e-05
+PASS  chunked N=100 w=1   chunk=None causal=True  float32  max_err=0.0e+00 tol=1.0e-05
+PASS  chunked N=100 w=1   chunk=None causal=False float32  max_err=0.0e+00 tol=1.0e-05
+PASS  chunked N=100 w=1   chunk=3    causal=True  float32  max_err=0.0e+00 tol=1.0e-05
+PASS  chunked N=100 w=1   chunk=3    causal=False float32  max_err=0.0e+00 tol=1.0e-05
+PASS  chunked N=100 w=4   chunk=None causal=True  float32  max_err=3.6e-07 tol=1.0e-05
+PASS  chunked N=100 w=4   chunk=None causal=False float32  max_err=4.8e-07 tol=1.0e-05
+PASS  chunked N=100 w=4   chunk=3    causal=True  float32  max_err=4.8e-07 tol=1.0e-05
+PASS  chunked N=100 w=4   chunk=3    causal=False float32  max_err=4.8e-07 tol=1.0e-05
+PASS  chunked N=100 w=16  chunk=None causal=True  float32  max_err=0.0e+00 tol=1.0e-05
+PASS  chunked N=100 w=16  chunk=None causal=False float32  max_err=0.0e+00 tol=1.0e-05
+PASS  chunked N=100 w=16  chunk=3    causal=True  float32  max_err=2.4e-07 tol=1.0e-05
+PASS  chunked N=100 w=16  chunk=3    causal=False float32  max_err=1.8e-07 tol=1.0e-05
+PASS  chunked N=100 w=200 chunk=None causal=True  float32  max_err=0.0e+00 tol=1.0e-05
+PASS  chunked N=100 w=200 chunk=None causal=False float32  max_err=0.0e+00 tol=1.0e-05
+PASS  chunked N=100 w=200 chunk=3    causal=True  float32  max_err=2.4e-07 tol=1.0e-05
+PASS  chunked N=100 w=200 chunk=3    causal=False float32  max_err=1.8e-07 tol=1.0e-05
+PASS  chunked N=7   w=1   chunk=None causal=True  float64  max_err=0.0e+00 tol=1.0e-12
+PASS  chunked N=7   w=1   chunk=None causal=False float64  max_err=0.0e+00 tol=1.0e-12
+PASS  chunked N=7   w=1   chunk=3    causal=True  float64  max_err=0.0e+00 tol=1.0e-12
+PASS  chunked N=7   w=1   chunk=3    causal=False float64  max_err=0.0e+00 tol=1.0e-12
+PASS  chunked N=7   w=4   chunk=None causal=True  float64  max_err=4.4e-16 tol=1.0e-12
+PASS  chunked N=7   w=4   chunk=None causal=False float64  max_err=6.7e-16 tol=1.0e-12
+PASS  chunked N=7   w=4   chunk=3    causal=True  float64  max_err=4.4e-16 tol=1.0e-12
+PASS  chunked N=7   w=4   chunk=3    causal=False float64  max_err=6.7e-16 tol=1.0e-12
+PASS  chunked N=7   w=16  chunk=None causal=True  float64  max_err=0.0e+00 tol=1.0e-12
+PASS  chunked N=7   w=16  chunk=None causal=False float64  max_err=0.0e+00 tol=1.0e-12
+PASS  chunked N=7   w=16  chunk=3    causal=True  float64  max_err=8.9e-16 tol=1.0e-12
+PASS  chunked N=7   w=16  chunk=3    causal=False float64  max_err=4.7e-16 tol=1.0e-12
+PASS  chunked N=7   w=200 chunk=None causal=True  float64  max_err=0.0e+00 tol=1.0e-12
+PASS  chunked N=7   w=200 chunk=None causal=False float64  max_err=0.0e+00 tol=1.0e-12
+PASS  chunked N=7   w=200 chunk=3    causal=True  float64  max_err=8.9e-16 tol=1.0e-12
+PASS  chunked N=7   w=200 chunk=3    causal=False float64  max_err=4.7e-16 tol=1.0e-12
+PASS  chunked N=64  w=1   chunk=None causal=True  float64  max_err=0.0e+00 tol=1.0e-12
+PASS  chunked N=64  w=1   chunk=None causal=False float64  max_err=0.0e+00 tol=1.0e-12
+PASS  chunked N=64  w=1   chunk=3    causal=True  float64  max_err=0.0e+00 tol=1.0e-12
+PASS  chunked N=64  w=1   chunk=3    causal=False float64  max_err=0.0e+00 tol=1.0e-12
+PASS  chunked N=64  w=4   chunk=None causal=True  float64  max_err=4.4e-16 tol=1.0e-12
+PASS  chunked N=64  w=4   chunk=None causal=False float64  max_err=4.4e-16 tol=1.0e-12
+PASS  chunked N=64  w=4   chunk=3    causal=True  float64  max_err=5.0e-16 tol=1.0e-12
+PASS  chunked N=64  w=4   chunk=3    causal=False float64  max_err=7.8e-16 tol=1.0e-12
+PASS  chunked N=64  w=16  chunk=None causal=True  float64  max_err=4.4e-16 tol=1.0e-12
+PASS  chunked N=64  w=16  chunk=None causal=False float64  max_err=3.3e-16 tol=1.0e-12
+PASS  chunked N=64  w=16  chunk=3    causal=True  float64  max_err=6.7e-16 tol=1.0e-12
+PASS  chunked N=64  w=16  chunk=3    causal=False float64  max_err=6.7e-16 tol=1.0e-12
+PASS  chunked N=64  w=200 chunk=None causal=True  float64  max_err=0.0e+00 tol=1.0e-12
+PASS  chunked N=64  w=200 chunk=None causal=False float64  max_err=0.0e+00 tol=1.0e-12
+PASS  chunked N=64  w=200 chunk=3    causal=True  float64  max_err=8.9e-16 tol=1.0e-12
+PASS  chunked N=64  w=200 chunk=3    causal=False float64  max_err=7.8e-16 tol=1.0e-12
+PASS  chunked N=100 w=1   chunk=None causal=True  float64  max_err=0.0e+00 tol=1.0e-12
+PASS  chunked N=100 w=1   chunk=None causal=False float64  max_err=0.0e+00 tol=1.0e-12
+PASS  chunked N=100 w=1   chunk=3    causal=True  float64  max_err=0.0e+00 tol=1.0e-12
+PASS  chunked N=100 w=1   chunk=3    causal=False float64  max_err=0.0e+00 tol=1.0e-12
+PASS  chunked N=100 w=4   chunk=None causal=True  float64  max_err=6.7e-16 tol=1.0e-12
+PASS  chunked N=100 w=4   chunk=None causal=False float64  max_err=4.4e-16 tol=1.0e-12
+PASS  chunked N=100 w=4   chunk=3    causal=True  float64  max_err=8.9e-16 tol=1.0e-12
+PASS  chunked N=100 w=4   chunk=3    causal=False float64  max_err=1.0e-15 tol=1.0e-12
+PASS  chunked N=100 w=16  chunk=None causal=True  float64  max_err=6.7e-16 tol=1.0e-12
+PASS  chunked N=100 w=16  chunk=None causal=False float64  max_err=3.3e-16 tol=1.0e-12
+PASS  chunked N=100 w=16  chunk=3    causal=True  float64  max_err=8.9e-16 tol=1.0e-12
+PASS  chunked N=100 w=16  chunk=3    causal=False float64  max_err=7.8e-16 tol=1.0e-12
+PASS  chunked N=100 w=200 chunk=None causal=True  float64  max_err=0.0e+00 tol=1.0e-12
+PASS  chunked N=100 w=200 chunk=None causal=False float64  max_err=0.0e+00 tol=1.0e-12
+PASS  chunked N=100 w=200 chunk=3    causal=True  float64  max_err=8.9e-16 tol=1.0e-12
+PASS  chunked N=100 w=200 chunk=3    causal=False float64  max_err=6.7e-16 tol=1.0e-12
 
 == 1.4 NaN handling ==
 PASS  bug reproduced: NaN without fix [causal_no_self, 1 empty rows]  
@@ -93,4 +191,4 @@ INFO  masked_fill + where-after-softmax: fwd NaN=False, grad NaN=False (masked_f
 == 1.4 why not -1e9 instead of -inf ==
 PASS  -1e9 fill: empty row averages all tokens incl. future (leak reproduced)  
 
-84/84 checks passed
+180/180 checks passed
