@@ -1,0 +1,99 @@
+{
+  "name": "sliding_w16",
+  "config": {
+    "vocab": 65,
+    "ctx": 256,
+    "n_layer": 2,
+    "n_head": 4,
+    "n_embd": 128,
+    "attn": "sliding",
+    "window": 16,
+    "block": 16,
+    "n_global": 2,
+    "n_random": 1
+  },
+  "args": {
+    "attn": "sliding",
+    "iters": 3000,
+    "batch": 64,
+    "ctx": 256,
+    "lr": 0.001,
+    "window": 16,
+    "block": 16,
+    "n_global": 2,
+    "n_random": 1,
+    "eval_every": 250,
+    "seed": 0
+  },
+  "gpu": "Tesla T4",
+  "n_params": 446273,
+  "final_val": 1.5976384830474855,
+  "train_time_s": 149.6,
+  "log": [
+    {
+      "step": 0,
+      "val_loss": 4.393676595687866,
+      "elapsed_s": 1.2
+    },
+    {
+      "step": 250,
+      "val_loss": 2.1708763456344604,
+      "elapsed_s": 13.3
+    },
+    {
+      "step": 500,
+      "val_loss": 1.931390495300293,
+      "elapsed_s": 25.7
+    },
+    {
+      "step": 750,
+      "val_loss": 1.7982232785224914,
+      "elapsed_s": 38.5
+    },
+    {
+      "step": 1000,
+      "val_loss": 1.7277874302864076,
+      "elapsed_s": 51.1
+    },
+    {
+      "step": 1250,
+      "val_loss": 1.686937928199768,
+      "elapsed_s": 63.3
+    },
+    {
+      "step": 1500,
+      "val_loss": 1.658346118927002,
+      "elapsed_s": 75.5
+    },
+    {
+      "step": 1750,
+      "val_loss": 1.6352974939346314,
+      "elapsed_s": 87.8
+    },
+    {
+      "step": 2000,
+      "val_loss": 1.6205610299110413,
+      "elapsed_s": 100.1
+    },
+    {
+      "step": 2250,
+      "val_loss": 1.6126155543327332,
+      "elapsed_s": 112.6
+    },
+    {
+      "step": 2500,
+      "val_loss": 1.602807993888855,
+      "elapsed_s": 125.0
+    },
+    {
+      "step": 2750,
+      "val_loss": 1.5999961996078491,
+      "elapsed_s": 137.4
+    },
+    {
+      "step": 3000,
+      "val_loss": 1.5976384830474855,
+      "elapsed_s": 149.6
+    }
+  ]
+}
