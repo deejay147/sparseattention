@@ -25,6 +25,6 @@ and BigBird-style sparse attention, correctness harness, benchmarks, and a
 - [X] 1.2 Sparsity patterns
 - [X] 1.3 Correctness harness
 - [X] 1.4 NaN handling
-- [ ] 1.5 Benchmark
+- [x] 1.5 Benchmark
 - [ ] 1.6 Quality evaluation
 - [ ] 1.7 Writeup
