@@ -81,6 +81,8 @@ def main():
     name = {"dense": "dense",
             "sliding": f"sliding_w{args.window}",
             "bigbird": f"bigbird_b{args.block}_g{args.n_global}_r{args.n_random}"}[args.attn]
+
+    name = f"{name}_seed{args.seed}"   # seed in filename so runs dont overwrite each other
     n_params = sum(prm.numel() for prm in model.parameters())
     gpu = torch.cuda.get_device_name(0) if device == "cuda" else "cpu"
     print(f"{name}: {n_params/1e6:.2f}M params, {gpu}, iters={args.iters}")
