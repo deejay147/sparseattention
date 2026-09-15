@@ -21,10 +21,10 @@ and BigBird-style sparse attention, correctness harness, benchmarks, and a
 - `train/` — tiny GPT and training loop (1.6)
 
 ## Status
-- [ ] 1.1 Dense attention
-- [ ] 1.2 Sparsity patterns
-- [ ] 1.3 Correctness harness
-- [ ] 1.4 NaN handling
+- [X] 1.1 Dense attention
+- [X] 1.2 Sparsity patterns
+- [X] 1.3 Correctness harness
+- [X] 1.4 NaN handling
 - [ ] 1.5 Benchmark
 - [ ] 1.6 Quality evaluation
 - [ ] 1.7 Writeup
